@@ -100,6 +100,7 @@ class Main {
     } else {
       System.out.println("Invalid input. Please type 1 or 2.");
     }
+    System.out.println("You wake up the next day and today you want to go to the Adventurers Guild again.");
     scanner.close();
   }
 }
