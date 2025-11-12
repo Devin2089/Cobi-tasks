@@ -10,120 +10,7 @@ class Main {
 
     System.out.println("Hello and welcome to Frostholt");
     System.out.println("This is a place that has gone through a ice age.");
-    System.out.println("The people of this world are suffering and need the coal so that they are able to keep warm and cook food.");
     System.out.println("After waking up you head to the Adventurers Guild");
-    System.out.println("Your Guild Master approaches you and gives you two options for todays mission");
-    System.out.println("Option 1: Go to the Ice Caves and collect 10 pieces of coal");
-    System.out.println("Option 2: Go to the Abandoned Mine and collect 10 gold ores");
-    System.out.println("Which option do you choose? (Type 1 or 2)");
-    int choice = scanner.nextInt();
-    scanner.nextLine(); // consume newline
-    if (choice == 1) {
-      boolean atCheckpoint = true;
-      while (atCheckpoint) {
-        System.out.println("You have chosen to go to the Ice Caves");
-        System.out.println("You head to the Ice Caves and come upon a fork in the road");
-        System.out.println("Do you want to go left or right? (Type left or right)");
-        String dir = scanner.nextLine();
-        if (dir.equalsIgnoreCase("left")) {
-          System.out.println("You have chosen to go left");
-          System.out.println("You head down the left path and come upon a group of ice goblins");
-          System.out.println("The ice goblins attack you!");
-          System.out.println("You died. Game Over.");
-          System.out.println("Reset to last checkpoint? (Type yes or no)");
-          String res = scanner.nextLine();
-          if (!res.equalsIgnoreCase("yes")) {
-            atCheckpoint = false;
-          }
-        } else if (dir.equalsIgnoreCase("right")) {
-          System.out.println("You have chosen to go right");
-          System.out.println("You head down the right path and find 10 pieces of coal!");
-          System.out.println("You collect the coal and return to the Adventurers Guild.");
-          System.out.println("Your Guild Master thanks you and gives you 50 gold coins as a reward");
-          System.out.println("You have completed your mission. Congratulations!");
-          atCheckpoint = false;
-        } else {
-          System.out.println("Invalid input. Please type 'left' or 'right'.");
-        }
-      }
-    } else if (choice == 2) {
-      // Abandoned Mine encounter wrapped so player can respawn at the cave entrance
-      boolean inMine = true;
-      while (inMine) {
-        System.out.println("You have chosen to go to the Abandoned Mine");
-        System.out.println("You head to the Abandoned Mine");
-        System.out.println("You come upon a group of cave trolls");
-        System.out.println("The cave trolls attack you!");
-        boolean validAction = false;
-        while (!validAction) {
-          System.out.println("What do you choose to do? (Type fight or flee)");
-          String action = scanner.nextLine();
-          if (action.equalsIgnoreCase("fight")) {
-            validAction = true;
-            // Simple random outcome for fight
-            if (Math.random() < 0.5) {
-              System.out.println("You bravely fight the trolls but are overwhelmed and perish. Game Over.");
-              System.out.println("Reset to the cave entrance? (Type yes or no)");
-              String res = scanner.nextLine();
-              if (!res.equalsIgnoreCase("yes")) {
-                // Player chooses not to respawn here; exit the mine loop and continue the game
-                inMine = false;
-              } else {
-                // Player chose to respawn at cave entrance: keep inMine = true so loop restarts
-                System.out.println("You awaken at the cave entrance and prepare to try again.");
-              }
-            } else {
-              System.out.println("You fight valiantly and defeat the trolls!");
-              System.out.println("You collect 10 gold ores and return to the Adventurers Guild.");
-              System.out.println("Your Guild Master thanks you and gives you 50 gold coins as a reward");
-              System.out.println("You have completed your mission. Congratulations!");
-              inMine = false;
-            }
-          } else if (action.equalsIgnoreCase("flee")) {
-            validAction = true;
-            System.out.println("You fled back to the Adventurers Guild.");
-            System.out.println("Your Guild Master is disappointed.");
-            System.out.println("He tells you to go to the Ice Caves instead.");
-            // Send player to the Ice Caves checkpoint loop
-            boolean atCheckpoint = true;
-            while (atCheckpoint) {
-              System.out.println("You have chosen to go to the Ice Caves");
-              System.out.println("You head to the Ice Caves and come upon a fork in the road");
-              System.out.println("Do you want to go left or right? (Type left or right)");
-              String dir = scanner.nextLine();
-              if (dir.equalsIgnoreCase("left")) {
-                System.out.println("You have chosen to go left");
-                System.out.println("You head down the left path and come upon a group of ice goblins");
-                System.out.println("The ice goblins attack you!");
-                System.out.println("You died. Game Over.");
-                System.out.println("Reset to last checkpoint? (Type yes or no)");
-                String res = scanner.nextLine();
-                if (!res.equalsIgnoreCase("yes")) {
-                  atCheckpoint = false;
-                }
-              } else if (dir.equalsIgnoreCase("right")) {
-                System.out.println("You have chosen to go right");
-                System.out.println("You head down the right path and find 10 pieces of coal!");
-                System.out.println("You collect the coal and return to the Adventurers Guild.");
-                System.out.println("Your Guild Master thanks you and gives you 50 gold coins as a reward");
-                System.out.println("You have completed your mission. Congratulations!");
-                atCheckpoint = false;
-              } else {
-                System.out.println("Invalid input. Please type 'left' or 'right'.");
-              }
-            }
-            // After fleeing to the guild/ice caves, exit the mine loop
-            inMine = false;
-          } else {
-            System.out.println("Invalid input. Please type 'fight' or 'flee'.");
-          }
-        }
-      }
-    } else {
-      System.out.println("Invalid input. Please type 1 or 2.");
-    }
-
-    System.out.println("You wake up the next day and today you want to go to the Adventurers Guild again.");
     System.out.println("Today you decide you want to have a party of 3 people to go with.");
     System.out.println("Your party are the following characters:");
     System.out.println("1. Bronn the Warrior, This is the tank of the group weilding a large battleaxe");
@@ -400,6 +287,131 @@ class Main {
         System.out.println("Invalid input. Please type 'parry' or 'dodge'.");
       }
     }
+
+    System.out.println("Now that the dragon is defeated, you and your party return to the village as heroes.");
+    System.out.println("But, this is not the end of your adventures in Frostholt...");
+    System.out.println("Your party decides to try to find the source of the dark magic that corrupted the Ice Dragon.");
+    System.out.println("Your party decides to look and ask around the town to maybe get a lead on the person it might be.");
+    // After the boss fight: village questioning sequence with 15 NPCs (two helpful toward finding the dark wizard)
+    System.out.println("After returning to the village you can ask around for leads about the dark magic.");
+    List<NPC> villagers = new java.util.ArrayList<>();
+    villagers.add(new NPC("Old Merek", "Innkeeper", new String[]{
+        "Ah, travelers! Warm yourselves by the fire.",
+        "I've heard whispers of a blizzard to the north, but that's all.",
+        "If you want ale, ask for the winter brew."}, false, null));
+    villagers.add(new NPC("Bryn the Miller", "Miller", new String[]{
+        "Grain's been scarce this year, been having trouble with the roads.",
+        "I saw lights on the ridge at night, thought it was hunters.",
+        "Don't go poking around near the old tower."}, false, null));
+    villagers.add(new NPC("Sera the Seamstress", "Seamstress", new String[]{
+        "I've sewn many cloaks for the guards.",
+        "They came through asking for warm clothes, three nights ago.",
+        "One of them had a strange sigil, like a coiled frost."}, false, null));
+    villagers.add(new NPC("Pip the Tinker", "Tinkerer", new String[]{
+        "My clockwork wolf's been acting odd lately.",
+        "I found a shard of something black in the snow.",
+        "Might be nothing, but it hummed with cold."}, false, null));
+    villagers.add(new NPC("Harrow", "Stablehand", new String[]{
+        "Horses throw their shoes when the wind howls.",
+        "I heard a chanting once, above the cliffs.",
+        "It gave me the chills, I swear."}, false, null));
+    villagers.add(new NPC("Lina the Herbalist", "Herbalist", new String[]{
+        "I've been brewing salves for frostbite.",
+        "Some herbs wilt near that eastern cave.",
+        "If you go there, bring a torch."}, false, null));
+    villagers.add(new NPC("Gunnar", "Blacksmith", new String[]{
+        "Metal gets brittle in this cold.",
+        "Strange armored riders passed through a fortnight ago.",
+        "They left behind a banner with icy runes."}, false, null));
+    villagers.add(new NPC("Maren the Scholar", "Scholar", new String[]{
+        "I've studied old scripts about corruption.",
+        "The runes you describe match a cult that worshipped the 'Dark Frost'.",
+        "If you find a broken obsidian amulet it may be connected."}, true, "Broken obsidian amulet - cult of Dark Frost."));
+    villagers.add(new NPC("Old Hest", "Fisherman", new String[]{
+        "The lake froze over faster this year.",
+        "I saw smoke rising from the mountain's mouth one dawn.",
+        "Fisher nets came up frosted and useless."}, false, null));
+    villagers.add(new NPC("Sibyl", "Fortune Teller", new String[]{
+        "I see swirling snow and stubborn shadow.",
+        "A figure wrapped in a dark robe walks where the wind does not touch.",
+        "Seek the place where the mountain bleeds moonlight."}, false, null));
+    villagers.add(new NPC("Tomas the Guard", "Guard", new String[]{
+        "We've doubled patrols near the old quarry.",
+        "There was a scuffle with some cloaked figures last week.",
+        "They left behind scorch marks unlike any weapon I've seen."}, false, null));
+    villagers.add(new NPC("Edda", "Baker", new String[]{
+        "I baked a loaf for a cloaked man once, he left a coin carved with ice.",
+        "He smelled of ash and mint.",
+        "Not a man to cross, if you ask me."}, false, null));
+    villagers.add(new NPC("Rolf the Youth", "Messenger", new String[]{
+        "I run messages between the farms.",
+        "I delivered a package to a tower at night — no one answered.",
+        "I hid when I heard chanting from inside."}, false, null));
+    villagers.add(new NPC("Eira the Hunter", "Hunter", new String[]{
+        "Tracks don't match any deer I've seen.",
+        "I followed them to an abandoned chapel on the ridge.",
+        "There were symbols drawn in frost on the altar."}, false, null));
+    villagers.add(new NPC("Old Hermit", "Hermit", new String[]{
+        "I once chased a shadow into a hollow and barely escaped.",
+        "It whispered of a wizard wrapped in midnight and snow.",
+        "He was seen near the shattered spire at the mountain's heart."}, true, "Shattered spire at the mountain's heart - likely hideout."));
+
+    System.out.println("There are several people you could question. You may choose up to 3 by number.");
+    for (int i = 0; i < villagers.size(); i++) {
+      NPC n = villagers.get(i);
+      System.out.println((i + 1) + ") " + n.getName() + " - " + n.getRole());
+    }
+    System.out.println("Type numbers separated by spaces (e.g., 2 5 9) or press Enter to skip:");
+    String talkInput = scanner.nextLine().trim();
+    if (!talkInput.isEmpty()) {
+      String[] picks = talkInput.split("\\s+");
+      int helpfulFound = 0;
+      java.util.List<String> clues = new java.util.ArrayList<>();
+      int used = 0;
+      for (String p : picks) {
+        if (used >= 3) break;
+        try {
+          int idx = Integer.parseInt(p) - 1;
+          if (idx < 0 || idx >= villagers.size()) {
+            System.out.println("Skipping invalid selection: " + p);
+            continue;
+          }
+          NPC npc = villagers.get(idx);
+          npc.speak();
+          if (npc.isHelpful()) {
+            helpfulFound++;
+            clues.add(npc.getClue());
+          }
+          used++;
+        } catch (NumberFormatException nfe) {
+          System.out.println("Skipping invalid input: " + p);
+        }
+      }
+      if (helpfulFound == 0) {
+        System.out.println("You didn't find any useful leads from those you questioned.");
+      } else {
+        System.out.println("You discovered " + helpfulFound + " lead(s):");
+        for (String c : clues) System.out.println(" - " + c);
+        if (helpfulFound >= 2) {
+          System.out.println("Combined, the clues point to a likely hideout: the shattered spire at the mountain's heart.");
+        } else {
+          System.out.println("You have a partial lead. Question more villagers in future to get the full picture.");
+        }
+      }
+    } else {
+      System.out.println("You choose not to question anyone right now.");
+    }
+
+    System.out.println("Does your party split up to cover more ground or stay together? (Type split or together)");
+    String partyDecision = scanner.nextLine();
+    if (partyDecision.equalsIgnoreCase("split")) {
+      System.out.println("You decide to split up and cover more ground. Be careful!");
+    } else if (partyDecision.equalsIgnoreCase("together")) {
+      System.out.println("You decide to stay together; safety in numbers.");
+    } else {
+      System.out.println("You hesitate and the party stays together by default.");
+    }
+
 
     scanner.close();
   }
